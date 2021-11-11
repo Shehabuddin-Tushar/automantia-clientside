@@ -1,0 +1,18 @@
+.reviewform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.reviewform input[type="text"]{
+    width:430px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+.reviewform input[type="date"]{
+    width:430px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}

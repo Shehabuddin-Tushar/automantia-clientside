@@ -1,0 +1,19 @@
+.placeorderform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.placeorderform input[type="text"]{
+    width:450px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+
+.productimage{
+    border: 3px solid rgb(160, 160, 64);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}

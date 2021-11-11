@@ -1,0 +1,26 @@
+.banner-wrapper{
+    background:url("https://i.postimg.cc/G3zNrpcn/backgroundbanner.jpg");
+    
+    background-size: 100% 100%;
+    margin-top: 70px;
+    padding-bottom: 100px;
+    margin-bottom: 30px;
+}
+.explorebtn{
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #fff;
+    display: inline-block;
+    padding: 8px 18px;
+    width: 150px;
+    text-align: center;
+    text-decoration: none;
+    color:#000;
+    border: 3px solid rgb(139, 139, 23);
+    border-radius: 10px;
+    transition: .5s;
+}
+
+.explorebtn:hover{
+    background-color: #fecb00;
+}
