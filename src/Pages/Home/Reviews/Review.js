@@ -29,7 +29,7 @@ function Review() {
                        <CardHeader
                         avatar={
                         <Avatar sx={{}} aria-label="recipe">
-                            R
+                            {review.username.slice(0,1)}
                         </Avatar>
                         }
                         action={

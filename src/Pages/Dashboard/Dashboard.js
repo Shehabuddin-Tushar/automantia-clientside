@@ -26,6 +26,8 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import StoreIcon from '@mui/icons-material/Store';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import ArticleIcon from '@mui/icons-material/Article';
 
 
 import {
@@ -43,6 +45,8 @@ import Pay from './Pay/Pay';
 import useAuth from '../../hooks/useAuth';
 import Myorders from './Myorders/Myorders';
 import Addreview from './Addreview/Addreview';
+import Manageallorders from './ManageAllorders/Manageallorders';
+import Manageproduct from './Manageproduct/Manageproduct';
 const drawerWidth = 240;
 
 function Dashboard(props) {
@@ -89,9 +93,23 @@ function Dashboard(props) {
 
           <MenuItem>
             <ListItemIcon>
+               <ManageAccountsIcon/>
+            </ListItemIcon>
+             <NavLink to={`${url}/manageorder`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Manage All order</NavLink>
+          </MenuItem>
+
+          <MenuItem>
+            <ListItemIcon>
                <AddIcon/>
             </ListItemIcon>
              <NavLink to={`${url}/addproduct`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Add Product</NavLink>
+          </MenuItem>
+
+          <MenuItem>
+            <ListItemIcon>
+               <ArticleIcon/>
+            </ListItemIcon>
+             <NavLink to={`${url}/manageproduct`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Manage product</NavLink>
           </MenuItem>
 
           <Divider />
@@ -219,6 +237,15 @@ function Dashboard(props) {
             <Route path={`${path}/addreview`}>
                <Addreview/>
             </Route>
+
+            <Route path={`${path}/manageorder`}>
+               <Manageallorders/>
+            </Route>
+
+            <Route path={`${path}/manageproduct`}>
+               <Manageproduct/>
+            </Route>
+
       </Switch>
       </Box>
     </Box>

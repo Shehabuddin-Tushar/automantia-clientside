@@ -12,7 +12,7 @@ function Addreview() {
 
     const {user}=useAuth();
     const { register, handleSubmit, watch, formState: { errors },reset } = useForm();
-    const [reviewnumber, setReviewnumber] = React.useState(5);
+    const [reviewnumber, setReviewnumber] = React.useState();
 
     const handleChange = (event) => {
       setReviewnumber(event.target.value);
@@ -54,6 +54,7 @@ function Addreview() {
                                 sx={{width:"300px"}}
                                 
                             >
+                                <MenuItem value={0}>zero star</MenuItem>
                                 <MenuItem value={1}>one star</MenuItem>
                                 <MenuItem value={2}>Two star</MenuItem>
                                 <MenuItem value={3}>Three star</MenuItem>

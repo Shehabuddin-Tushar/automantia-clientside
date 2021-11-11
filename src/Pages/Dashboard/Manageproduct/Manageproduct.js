@@ -34,32 +34,31 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   }));
   
-function Myorders() {
-     const [myordersdata,setMyordersdata]=useState([]);
-     const {user}=useAuth();
-  
+function Manageproduct() {
+    const [products,setProducts]=useState([]);
 
-     useEffect(()=>{
+    useEffect(()=>{
 
-        axios.get(`http://localhost:5000/myorders?email=${user.email}`).then(res=>setMyordersdata(res.data)).catch(err=>console.log(err))
+          fetch("http://localhost:5000/products").then(res=>res.json()).then(data=>setProducts(data))
 
-     },[myordersdata])
+    },[products])
 
-    const deleteorder=(id)=>{
-        const confirmdelete=window.confirm("Are you sure you want to delete this data?");
+    
+       
+    const deleteproduct=(id)=>{
+        const confirmdelete=window.confirm("Are you sure you want to delete this product?");
         if(confirmdelete){
 
-            axios.delete(`http://localhost:5000/deleteorder/${id}`).then(res=>{
-                 console.log(res)
+            axios.delete(`http://localhost:5000/deleteproduct/${id}`).then(res=>{
+                console.log(res)
                 toast.success(res.data)
-                const filterdata=myordersdata.filter(product=>product._id!==id);
-                setMyordersdata(filterdata);
-     
-           }).catch(err=>console.log(err))
+                const filterdata=products.filter(product=>product._id!==id);
+                setProducts(filterdata);
+             }).catch(err=>console.log(err))
             }
-        }
-       
+    }
 
+    let i=0;
     return (
         <Box>
             <Grid container spacing={2}>
@@ -69,25 +68,29 @@ function Myorders() {
                         <Table sx={{}} aria-label="customized table">
                             <TableHead>
                             <TableRow>
-                                <StyledTableCell>Email</StyledTableCell>
+                                <StyledTableCell>Serial</StyledTableCell>
                                 <StyledTableCell align="right">Product name</StyledTableCell>
                                 <StyledTableCell align="right">Product price</StyledTableCell>
-                                <StyledTableCell align="right">Status</StyledTableCell>
+                               
                                 <StyledTableCell align="center">Action</StyledTableCell>
                             </TableRow>
                             </TableHead>
                             <TableBody>
                             <ToastContainer />
                              {
-                                 myordersdata.map((product)=>{
+                                 
+                                 products.map((product)=>{
+                                     i++
                                    return(
                                         <StyledTableRow key={product._id}>
-                                          <StyledTableCell component="th" scope="row">{product.email}</StyledTableCell>
-                                          <StyledTableCell align="right">{product.productdetails.name}</StyledTableCell>
-                                          <StyledTableCell align="right">{product.productdetails.price}</StyledTableCell>
-                                          <StyledTableCell align="right">{product.status}</StyledTableCell>
+                                          <StyledTableCell component="th" scope="row">{i}</StyledTableCell>
+                                          <StyledTableCell align="right">{product.name}</StyledTableCell>
+                                          <StyledTableCell align="right">{product.price}</StyledTableCell>
+                                          
                                           <StyledTableCell align="center">
-                                              <Button onClick={()=>deleteorder(product._id)} variant="contained">Delete</Button>
+                                             
+                                                <Button onClick={()=>deleteproduct(product._id)} variant="contained">Delete</Button>
+                                                
                                           </StyledTableCell>
                                 
                                          </StyledTableRow>
@@ -95,15 +98,7 @@ function Myorders() {
 
                                  })
                                }
-                                {/* <StyledTableRow key={product._id}>
-                                <StyledTableCell component="th" scope="row">
-                                   
-                                </StyledTableCell>
-                                <StyledTableCell align="right">{product.name}</StyledTableCell>
-                                <StyledTableCell align="right">{product.price}</StyledTableCell>
-                                <StyledTableCell align="right"></StyledTableCell>
-                                
-                                </StyledTableRow> */}
+                               
                             
                             </TableBody>
                         </Table>
@@ -115,5 +110,6 @@ function Myorders() {
     )
 }
 
-export default Myorders
+export default Manageproduct;
+
 

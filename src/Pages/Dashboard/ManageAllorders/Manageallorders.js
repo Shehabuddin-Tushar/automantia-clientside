@@ -34,32 +34,29 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   }));
   
-function Myorders() {
-     const [myordersdata,setMyordersdata]=useState([]);
+function Manageallorders() {
+     const [allordersdata,setAllordersdata]=useState([]);
      const {user}=useAuth();
   
 
      useEffect(()=>{
 
-        axios.get(`http://localhost:5000/myorders?email=${user.email}`).then(res=>setMyordersdata(res.data)).catch(err=>console.log(err))
+        axios.get(`http://localhost:5000/allorders`).then(res=>setAllordersdata(res.data)).catch(err=>console.log(err))
 
-     },[myordersdata])
+     },[allordersdata])
 
-    const deleteorder=(id)=>{
-        const confirmdelete=window.confirm("Are you sure you want to delete this data?");
-        if(confirmdelete){
-
-            axios.delete(`http://localhost:5000/deleteorder/${id}`).then(res=>{
-                 console.log(res)
-                toast.success(res.data)
-                const filterdata=myordersdata.filter(product=>product._id!==id);
-                setMyordersdata(filterdata);
-     
-           }).catch(err=>console.log(err))
-            }
-        }
+    
        
+    const changestatus=(id)=>{
+        const confirmchange=window.confirm("Are you sure you want to change status?");
+        if(confirmchange){
 
+            axios.put(`http://localhost:5000/changestatus/${id}`).then(res=>{
+                
+                toast.success(res.data)
+             }).catch(err=>console.log(err))
+            }
+    }
     return (
         <Box>
             <Grid container spacing={2}>
@@ -79,7 +76,7 @@ function Myorders() {
                             <TableBody>
                             <ToastContainer />
                              {
-                                 myordersdata.map((product)=>{
+                                 allordersdata.map((product)=>{
                                    return(
                                         <StyledTableRow key={product._id}>
                                           <StyledTableCell component="th" scope="row">{product.email}</StyledTableCell>
@@ -87,7 +84,9 @@ function Myorders() {
                                           <StyledTableCell align="right">{product.productdetails.price}</StyledTableCell>
                                           <StyledTableCell align="right">{product.status}</StyledTableCell>
                                           <StyledTableCell align="center">
-                                              <Button onClick={()=>deleteorder(product._id)} variant="contained">Delete</Button>
+                                              {product.status==="Pending"?
+                                                <Button onClick={()=>changestatus(product._id)} variant="contained">Change status</Button>:<Button disabled variant="contained">Shipped</Button>
+                                               } 
                                           </StyledTableCell>
                                 
                                          </StyledTableRow>
@@ -95,15 +94,7 @@ function Myorders() {
 
                                  })
                                }
-                                {/* <StyledTableRow key={product._id}>
-                                <StyledTableCell component="th" scope="row">
-                                   
-                                </StyledTableCell>
-                                <StyledTableCell align="right">{product.name}</StyledTableCell>
-                                <StyledTableCell align="right">{product.price}</StyledTableCell>
-                                <StyledTableCell align="right"></StyledTableCell>
-                                
-                                </StyledTableRow> */}
+                               
                             
                             </TableBody>
                         </Table>
@@ -115,5 +106,5 @@ function Myorders() {
     )
 }
 
-export default Myorders
+export default Manageallorders;
 

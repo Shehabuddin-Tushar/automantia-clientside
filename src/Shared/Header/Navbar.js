@@ -17,6 +17,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link, NavLink } from 'react-router-dom';
 import { Button } from '@mui/material';
 import useAuth from '../../hooks/useAuth';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -84,7 +85,9 @@ function Navbar() {
         };
       
         const menuId = 'primary-search-account-menu';
+        
         const renderMenu = (
+         
           <Menu
             anchorEl={anchorEl}
             anchorOrigin={{
@@ -163,17 +166,17 @@ function Navbar() {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <DirectionsCarIcon />
           </IconButton>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { xs: 'block', sm: 'block' } }}
           >
             <NavLink to="/" style={{color:"#fff",textDecoration:"none"}}>AutoMantia</NavLink>
           </Typography>
-          <Search>
+          <Search sx={{ display: { xs: 'none', sm: 'none',md:"block" } }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
