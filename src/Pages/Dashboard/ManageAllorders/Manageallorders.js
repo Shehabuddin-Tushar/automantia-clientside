@@ -62,7 +62,7 @@ function Manageallorders() {
           <title>Manage orders</title>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={12}>
-                 <Typography variant="h4">My orders</Typography>
+                 <Typography variant="h4"sx={{mb:2}}>Manage all orders</Typography>
                     <TableContainer component={Paper}>
                         <Table sx={{}} aria-label="customized table">
                             <TableHead>

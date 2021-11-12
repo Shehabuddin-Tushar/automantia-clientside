@@ -134,21 +134,21 @@ function Dashboard(props) {
           <Divider />
 
          
-          {user.email && <MenuItem>
+          {user.email && !myrole && <MenuItem>
             <ListItemIcon>
                <AccountBalanceIcon/>
             </ListItemIcon>
              <NavLink to={`${url}/pay`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Payment</NavLink>
           </MenuItem>}
 
-          {user.email && <MenuItem>
+          {user.email && !myrole && <MenuItem>
             <ListItemIcon>
                <StoreIcon/>
             </ListItemIcon>
              <NavLink to={`${url}/myorders`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>My orders</NavLink>
           </MenuItem>}
 
-          {user.email && <MenuItem>
+          {user.email && !myrole && <MenuItem>
             <ListItemIcon>
                <AddIcon/>
             </ListItemIcon>
