@@ -3,7 +3,7 @@ import React from 'react'
 import './Pay.css'
 function Pay() {
     return (
-        <Box className="pay-wrapper">
+         <Box className="pay-wrapper">
             
         </Box>
     )

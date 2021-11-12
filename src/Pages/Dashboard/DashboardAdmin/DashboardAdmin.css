@@ -1,0 +1,13 @@
+.adminmakeform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.adminmakeform input[type="email"]{
+    width:430px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}

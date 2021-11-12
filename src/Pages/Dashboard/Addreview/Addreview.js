@@ -11,7 +11,7 @@ import axios from 'axios'
 function Addreview() {
 
     const {user}=useAuth();
-    const { register, handleSubmit, watch, formState: { errors },reset } = useForm();
+    const { register, handleSubmit,formState: { errors },reset } = useForm();
     const [reviewnumber, setReviewnumber] = React.useState();
 
     const handleChange = (event) => {
@@ -34,7 +34,7 @@ function Addreview() {
                    
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <ToastContainer />
-                       <Typography variant="h4" style={{textAlign:"center",marginBottom:"30px"}}>Add you valuable review for our product</Typography>
+                       <Typography variant="h4" style={{textAlign:"center",marginBottom:"30px"}}>Add your valuable review for our product</Typography>
                        
                        {user.displayName && 
                          <TextField value={user.displayName}  {...register("username")} id="standard-basic" sx={{display:"block"}} label="Username" variant="standard" />

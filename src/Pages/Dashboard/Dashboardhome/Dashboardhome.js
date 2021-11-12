@@ -1,10 +1,11 @@
+import { Box } from '@mui/system'
 import React from 'react'
-
+import './Dashboardhome.css'
 function Dashboardhome() {
     return (
-        <div>
-            <h1>dashboardhome</h1>
-        </div>
+         <Box className="dashboardhome-wrapper">
+            
+        </Box>
     )
 }
 

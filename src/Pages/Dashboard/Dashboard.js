@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{useState,useEffect} from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -6,12 +6,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -50,9 +50,24 @@ import Manageproduct from './Manageproduct/Manageproduct';
 const drawerWidth = 240;
 
 function Dashboard(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const {Logout,user}=useAuth();
+        const { window } = props;
+        const [mobileOpen, setMobileOpen] = React.useState(false);
+        const {Logout,user}=useAuth();
+        const[myrole,setMyrole]=useState();
+ 
+       const [databaseuser,setDatabaseuser]=useState({});
+       const useremail=user.email;
+        useEffect(()=>{
+          fetch(`http://localhost:5000/userfind/${user.email}`).then(res=>res.json()).then(data=>{
+            setDatabaseuser(data);
+            setMyrole(data.role==="admin"?true:false)
+          
+          })
+        },[useremail,myrole])
+
+       
+      
+        
   const history=useHistory();
   const gotologin=()=>{
       history.push("/login")
@@ -69,13 +84,15 @@ function Dashboard(props) {
      
       
       <List sx={{bgcolor:"#ffc800",height:"100vh"}}>
-         <MenuItem>
+          <MenuItem>
             <ListItemIcon>
                <ShopIcon/>
             </ListItemIcon>
              <NavLink to="/products" activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>All products</NavLink>
           </MenuItem>
           <Divider />
+
+
           <MenuItem>
             <ListItemIcon>
                <AdminPanelSettingsIcon/>
@@ -83,34 +100,35 @@ function Dashboard(props) {
              <NavLink to={`${url}`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Dashboard</NavLink>
           </MenuItem>
 
-
-          <MenuItem>
+        
+        
+          {myrole && <MenuItem>
             <ListItemIcon>
                <SupervisorAccountIcon/>
             </ListItemIcon>
              <NavLink to={`${url}/makeadmin`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Make Admin</NavLink>
-          </MenuItem>
+          </MenuItem>}
 
-          <MenuItem>
+          {myrole && <MenuItem>
             <ListItemIcon>
                <ManageAccountsIcon/>
             </ListItemIcon>
              <NavLink to={`${url}/manageorder`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Manage All order</NavLink>
-          </MenuItem>
+          </MenuItem>}
 
-          <MenuItem>
+          {myrole && <MenuItem>
             <ListItemIcon>
                <AddIcon/>
             </ListItemIcon>
              <NavLink to={`${url}/addproduct`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Add Product</NavLink>
-          </MenuItem>
+          </MenuItem>}
 
-          <MenuItem>
+          {myrole && <MenuItem>
             <ListItemIcon>
                <ArticleIcon/>
             </ListItemIcon>
              <NavLink to={`${url}/manageproduct`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Manage product</NavLink>
-          </MenuItem>
+          </MenuItem>}
 
           <Divider />
 
@@ -173,7 +191,7 @@ function Dashboard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Automantia Dashboard
+            Automantia Dashboard == [{user.displayName}]
           </Typography>
         </Toolbar>
       </AppBar>

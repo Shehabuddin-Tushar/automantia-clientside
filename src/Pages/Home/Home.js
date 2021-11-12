@@ -11,7 +11,7 @@ function Home() {
         <div>
             <Navbar/>
             <Topbanner/>
-            <Products item={4}/>
+            <Products item={6}/>
             <Review/>
             <Blog/>
             <Footer/>

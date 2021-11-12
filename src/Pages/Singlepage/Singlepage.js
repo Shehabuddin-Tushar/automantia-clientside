@@ -2,7 +2,7 @@ import { Button, Container, Grid, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import axios from 'axios'
 import React,{useState,useEffect} from 'react'
-import { Link,useParams } from 'react-router-dom'
+import {useParams } from 'react-router-dom'
 import Navbar from '../../Shared/Header/Navbar'
 import { SRLWrapper } from "simple-react-lightbox";
 import './Singlepage.css'
@@ -14,7 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Singlepage() {
     const [product,setProduct]=useState({});
     const {id}=useParams();
-    const { register, handleSubmit, watch, formState: { errors },reset } = useForm();
+    const { register, handleSubmit,formState: { errors },reset } = useForm();
     const onSubmit = data =>{
          
          data.productdetails=product;

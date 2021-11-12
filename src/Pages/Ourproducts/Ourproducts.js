@@ -8,7 +8,7 @@ function Ourproducts() {
     return (
         <Box className="ourproducts-wrapper" sx={{marginTop:"100px"}}>
             <Navbar/>
-            <Products item={0}/> 
+            <Products item={200}/> 
             <Footer/>
         </Box>
     )

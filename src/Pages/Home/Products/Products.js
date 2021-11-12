@@ -19,7 +19,7 @@ function Products({item}) {
                <Typography variant="h4" sx={{textAlign:"center",marginBottom:"40px",color:"gray"}}>Select your favourite Product</Typography>
                <Grid container spacing={2}>
                  {
-                     products.slice(item).map((product)=>{
+                     products.slice(0,item).map((product)=>{
                        return(
                            <Singleproduct key={product.name} product={product}/>
                        )

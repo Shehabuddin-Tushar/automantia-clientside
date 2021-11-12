@@ -18,7 +18,7 @@ function Singleproduct({product}) {
                                   {product.name}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                  {product.description.slice(300)}
+                                  {product.description.slice(0,200)}
                                 </Typography>
                             </CardContent>
                             <CardActions>

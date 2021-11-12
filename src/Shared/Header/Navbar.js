@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -59,17 +59,16 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 function Navbar() {
-    
-        
-       
-        const [anchorEl, setAnchorEl] = React.useState(null);
+       const [anchorEl, setAnchorEl] = React.useState(null);
         const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
       
         const isMenuOpen = Boolean(anchorEl);
         const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
         
         const {user,Logout}=useAuth();
-         console.log(user)
+
+        
+        
       
         const handleMobileMenuClose = () => {
           setMobileMoreAnchorEl(null);
