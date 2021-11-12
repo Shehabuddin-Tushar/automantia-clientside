@@ -39,7 +39,7 @@ function Manageproduct() {
 
     useEffect(()=>{
 
-          fetch("http://localhost:5000/products").then(res=>res.json()).then(data=>setProducts(data))
+          fetch("https://desolate-atoll-64898.herokuapp.com/products").then(res=>res.json()).then(data=>setProducts(data))
 
     },[products])
 

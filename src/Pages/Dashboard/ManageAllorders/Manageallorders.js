@@ -41,7 +41,7 @@ function Manageallorders() {
 
      useEffect(()=>{
 
-        axios.get(`http://localhost:5000/allorders`).then(res=>setAllordersdata(res.data)).catch(err=>console.log(err))
+        axios.get(`https://desolate-atoll-64898.herokuapp.com/allorders`).then(res=>setAllordersdata(res.data)).catch(err=>console.log(err))
 
      },[allordersdata])
 
