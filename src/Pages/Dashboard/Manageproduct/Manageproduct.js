@@ -61,6 +61,7 @@ function Manageproduct() {
     let i=0;
     return (
         <Box>
+          <title>Manage product</title>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={12}>
                  <Typography variant="h4">My orders</Typography>

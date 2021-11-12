@@ -14,6 +14,7 @@ function Products({item}) {
     },[products])
     return (
         <Box className="products-wrapper" sx={{marginBottom:"40px"}}>
+            <title>Shop</title>
            <Container>
                <Typography variant="h4" sx={{textAlign:"center",marginBottom:"30px",textShadow:"2px 4px 3px rgba(0,0,0,0.3)",fontWeight:"bold"}}>Our Poducts</Typography>
                <Typography variant="h4" sx={{textAlign:"center",marginBottom:"40px",color:"gray"}}>Select your favourite Product</Typography>

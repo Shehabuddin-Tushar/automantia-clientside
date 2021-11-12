@@ -19,6 +19,7 @@ function Registration() {
     }
     return (
         <>
+        <title>Registration</title>
          <Navbar/>
         <Box className="registrationimage">
            

@@ -9,7 +9,7 @@ import './Login.css'
 function Login() {
 
   const {Logout,user,signupWithgoogleLogi,setUservalues,handleloginchange,singinLogin,error,setError,loginuser,setIsloading}=useAuth();
-  const location=useLocation();
+  let location=useLocation();
   const redirect_url=location.state?.from || "/products";
   console.log(redirect_url)
   const history=useHistory();
@@ -37,6 +37,7 @@ function Login() {
             setError("");
             setUservalues({});
             history.push(redirect_url);
+            window.location.reload();
             
            }
            
@@ -56,6 +57,7 @@ function Login() {
      
     return (
         <>
+        <title>Login</title>
          <Navbar/>
           <Box className="loginbackground">
            

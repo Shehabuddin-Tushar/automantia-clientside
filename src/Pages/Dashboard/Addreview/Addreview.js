@@ -29,6 +29,7 @@ function Addreview() {
     }
     return (
         <Box className="review-wrapper">
+          <title>Add review</title>
            <Grid container spacing={2}>
                 <Grid item xs={12} md={6} className="reviewform">
                    

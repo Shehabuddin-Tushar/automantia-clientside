@@ -9,6 +9,7 @@ import Topbanner from './Topbanner/Topbanner'
 function Home() {
     return (
         <div>
+            <title>Home</title>
             <Navbar/>
             <Topbanner/>
             <Products item={6}/>

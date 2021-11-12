@@ -6,12 +6,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -28,8 +26,6 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import ArticleIcon from '@mui/icons-material/Article';
-
-
 import {
   Switch,
   Route,
@@ -71,6 +67,11 @@ function Dashboard(props) {
   const history=useHistory();
   const gotologin=()=>{
       history.push("/login")
+  }
+
+  const logout=()=>{
+    Logout();
+    history.push("/login")
   }
   
   let { path, url } = useRouteMatch();
@@ -137,7 +138,7 @@ function Dashboard(props) {
             <ListItemIcon>
                <AccountBalanceIcon/>
             </ListItemIcon>
-             <NavLink to={`${url}/pay`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Pay</NavLink>
+             <NavLink to={`${url}/pay`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Payment</NavLink>
           </MenuItem>}
 
           {user.email && <MenuItem>
@@ -159,7 +160,7 @@ function Dashboard(props) {
             {user.email?<LoginIcon/>:<LogoutIcon/>}
             </ListItemIcon>
 
-            {user.email?<Button  onClick={Logout} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Logout</Button>:<Button  onClick={gotologin} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>LogIn</Button>}
+            {user.email?<Button  onClick={logout} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Logout</Button>:<Button  onClick={gotologin} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>LogIn</Button>}
           </MenuItem>
           
        </List>

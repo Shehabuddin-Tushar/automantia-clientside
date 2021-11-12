@@ -15,7 +15,7 @@ function Topbanner() {
                    <Link to="/products" className="explorebtn" >Explore</Link>  
                 </Grid>
                 <Grid item xs={12} md={6} sx={{mt:10}}>
-                    <img src="https://i.postimg.cc/cJPGMb84/bannerimg.png" width="100%" alt="img-banner"/>
+                    <img src="https://i.postimg.cc/m21xJyvZ/bannerimg.png" width="100%" alt="img-banner"/>
                 </Grid>
                 
             </Grid>

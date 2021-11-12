@@ -62,6 +62,7 @@ function Myorders() {
 
     return (
         <Box>
+          <title>My orders</title>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={12}>
                  <Typography variant="h4">My orders</Typography>
