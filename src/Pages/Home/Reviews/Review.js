@@ -8,7 +8,7 @@ function Review() {
    
     useEffect(()=>{
 
-        fetch("http://localhost:5000/reviews").then(res=>res.json()).then(data=>setAllreviews(data))
+        fetch("https://desolate-atoll-64898.herokuapp.com/reviews").then(res=>res.json()).then(data=>setAllreviews(data))
 
   },[])
     return (

@@ -51,7 +51,7 @@ function Manageallorders() {
         const confirmchange=window.confirm("Are you sure you want to change status?");
         if(confirmchange){
 
-            axios.put(`http://localhost:5000/changestatus/${id}`).then(res=>{
+            axios.put(`https://desolate-atoll-64898.herokuapp.com/changestatus/${id}`).then(res=>{
                 
                 toast.success(res.data)
              }).catch(err=>console.log(err))

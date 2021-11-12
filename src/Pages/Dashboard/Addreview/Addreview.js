@@ -18,7 +18,7 @@ function Addreview() {
       setReviewnumber(event.target.value);
     };
     const onSubmit = data =>{
-        axios.post(`http://localhost:5000/savereview`,data)
+        axios.post(`https://desolate-atoll-64898.herokuapp.com/savereview`,data)
         .then(res=>{
            toast.success("your review add successfully")
             

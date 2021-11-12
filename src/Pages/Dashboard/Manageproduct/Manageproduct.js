@@ -49,7 +49,7 @@ function Manageproduct() {
         const confirmdelete=window.confirm("Are you sure you want to delete this product?");
         if(confirmdelete){
 
-            axios.delete(`http://localhost:5000/deleteproduct/${id}`).then(res=>{
+            axios.delete(`https://desolate-atoll-64898.herokuapp.com/deleteproduct/${id}`).then(res=>{
                 console.log(res)
                 toast.success(res.data)
                 const filterdata=products.filter(product=>product._id!==id);

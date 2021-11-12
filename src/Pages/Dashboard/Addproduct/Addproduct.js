@@ -9,7 +9,7 @@ import axios from 'axios';
 function Addproduct() {
     const { register, handleSubmit,formState: { errors },reset } = useForm();
     const onSubmit = data =>{
-        axios.post(`http://localhost:5000/addproduct`,data)
+        axios.post(`https://desolate-atoll-64898.herokuapp.com/addproduct`,data)
         .then(res=>{
           if(res.insertedId){
               toast.success("product inserted successfully")

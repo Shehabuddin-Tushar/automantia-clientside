@@ -41,7 +41,7 @@ function Myorders() {
 
      useEffect(()=>{
 
-        axios.get(`http://localhost:5000/myorders?email=${user.email}`).then(res=>setMyordersdata(res.data)).catch(err=>console.log(err))
+        axios.get(`https://desolate-atoll-64898.herokuapp.com/myorders?email=${user.email}`).then(res=>setMyordersdata(res.data)).catch(err=>console.log(err))
 
      },[myordersdata])
 
@@ -49,7 +49,7 @@ function Myorders() {
         const confirmdelete=window.confirm("Are you sure you want to delete this data?");
         if(confirmdelete){
 
-            axios.delete(`http://localhost:5000/deleteorder/${id}`).then(res=>{
+            axios.delete(`https://desolate-atoll-64898.herokuapp.com/deleteorder/${id}`).then(res=>{
                  console.log(res)
                 toast.success(res.data)
                 const filterdata=myordersdata.filter(product=>product._id!==id);
