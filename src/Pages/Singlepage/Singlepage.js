@@ -30,7 +30,7 @@ function Singlepage() {
     const {user}=useAuth();
     
     useEffect(()=>{
-         axios.get(`http://localhost:5000/product/${id}`).then(res=>setProduct(res.data)).catch(err=>console.log(err));
+         axios.get(`https://desolate-atoll-64898.herokuapp.com/product/${id}`).then(res=>setProduct(res.data)).catch(err=>console.log(err));
     },[])
     return (
         
