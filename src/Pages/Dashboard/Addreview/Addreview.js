@@ -42,7 +42,7 @@ function Addreview() {
                        }
                        
                        <TextField type="date" {...register("reviewdate", { required: true })} id="standard-basic"  sx={{display:"block"}}   variant="standard" />
-                       <Typography sx={{color:"red"}}>{errors.reviewdate && <span>Reviewdate is required</span>}</Typography>
+                       <Typography sx={{color:"red"}}>{errors.reviewdate && <span>Review date is required</span>}</Typography>
                        
                        <InputLabel id="demo-simple-select-label" sx={{marginTop:"20px"}}>Rating the product</InputLabel>
                             <Select
