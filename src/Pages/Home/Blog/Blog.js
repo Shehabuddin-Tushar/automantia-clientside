@@ -13,10 +13,10 @@ function Blog() {
                         <Box sx={{ display: 'flex', flexDirection: 'column',padding:"20px"}}>
                             <CardContent sx={{ flex: '1 0 auto' }}>
                             <Typography component="div" variant="h5">
-                                Live From Space
+                                Blog one
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Mac Miller
+                                Jhon thomas
                             </Typography>
                             </CardContent>
                             <Typography>Yukon AT4 has a special type of versatility. Ultimately,boundless comfort and classy styling helped lead Yukon to the prize.</Typography>
@@ -34,10 +34,10 @@ function Blog() {
                         <Box sx={{ display: 'flex', flexDirection: 'column',padding:"20px"}}>
                             <CardContent sx={{ flex: '1 0 auto' }}>
                             <Typography component="div" variant="h5">
-                                Live From Space
+                                Our Garage
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Mac Miller
+                                Michel radison
                             </Typography>
                             </CardContent>
                             <Typography>it’s clear that Yukon AT4 has Ultimately, its dynamic off-road features, boundless comfort and classy styling helped lead Yukon to the prize.</Typography>
@@ -61,10 +61,10 @@ function Blog() {
                         <Box sx={{ display: 'flex', flexDirection: 'column',padding:"20px"}}>
                             <CardContent sx={{ flex: '1 0 auto' }}>
                             <Typography component="div" variant="h5">
-                                Live From Space
+                                Upcomming car
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Mac Miller
+                               Andrew flintof
                             </Typography>
                             </CardContent>
                             <Typography>Ultimately, its dynamic off-road features, boundless comfort and classy styling helped lead Yukon to the prize.</Typography>
@@ -83,10 +83,10 @@ function Blog() {
                         <Box sx={{ display: 'flex', flexDirection: 'column',padding:"20px"}}>
                             <CardContent sx={{ flex: '1 0 auto' }}>
                             <Typography component="div" variant="h5">
-                                Live From Space
+                                Blog four
                             </Typography>
                             <Typography variant="subtitle1" color="text.secondary" component="div">
-                                Mac Miller
+                                Tom cruis
                             </Typography>
                             </CardContent>
                             <Typography>These Bollinger vehicles look more like Soviet military equipment than six-figure luxury cars. </Typography>
