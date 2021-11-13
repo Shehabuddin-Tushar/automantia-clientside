@@ -143,7 +143,7 @@ function Navbar() {
              }
              <MenuItem>
            
-               {user.email?<Button onClick={Logout}  style={{textDecoration:"none",color:"#000",fontWeight:"bold",fontSize:"18px",padding:"0px 15px"}}>Log out</Button>:<NavLink to="/dashboard" style={{textDecoration:"none",color:"#000",fontWeight:"bold",padding:"5px 15px"}}>Dashboard</NavLink>}
+               {user.email?<Button onClick={Logout}  style={{textDecoration:"none",color:"#000",fontWeight:"bold",fontSize:"18px",padding:"0px 15px"}}>Log out</Button>:<NavLink to="/login" style={{textDecoration:"none",color:"#000",fontWeight:"bold",padding:"5px 15px"}}>LogIn</NavLink>}
              </MenuItem>
 
             
