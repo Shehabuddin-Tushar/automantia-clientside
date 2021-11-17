@@ -134,12 +134,12 @@ function Dashboard(props) {
           <Divider />
 
          
-          {user.email && !myrole && <MenuItem>
+          {/* {user.email && !myrole && <MenuItem>
             <ListItemIcon>
                <AccountBalanceIcon/>
             </ListItemIcon>
              <NavLink to={`${url}/pay`} activeStyle={{ color:'red' }} style={{color:"#000",marginTop:"0px",padding:"10px 15px",textDecoration:"none"}}>Payment</NavLink>
-          </MenuItem>}
+          </MenuItem>} */}
 
           {user.email && !myrole && <MenuItem>
             <ListItemIcon>
@@ -245,7 +245,7 @@ function Dashboard(props) {
             <Route path={`${path}/addproduct`}>
                <Addproduct/>
             </Route>
-            <Route path={`${path}/pay`}>
+            <Route path={`${path}/payment/:id`}>
                <Pay/>
             </Route>
 

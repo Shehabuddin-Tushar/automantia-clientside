@@ -11,7 +11,7 @@ function Singleproduct({product}) {
                                 component="img"
                                 alt="green iguana"
                                 height="170"
-                                image={product.img}
+                                image={`data:image/*;base64,${product.img}`}
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">

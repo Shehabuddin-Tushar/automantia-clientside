@@ -13,7 +13,8 @@ import useAuth from '../../../hooks/useAuth';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Link, NavLink } from 'react-router-dom';
+import './Myorders.css'
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -36,14 +37,20 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   
 function Myorders() {
      const [myordersdata,setMyordersdata]=useState([]);
+     
      const {user}=useAuth();
   
 
      useEffect(()=>{
 
-        axios.get(`https://desolate-atoll-64898.herokuapp.com/myorders?email=${user.email}`).then(res=>setMyordersdata(res.data)).catch(err=>console.log(err))
+        axios.get(`https://desolate-atoll-64898.herokuapp.com/myorders?email=${user.email}`)
+        .then(res=>{
+          setMyordersdata(res.data);
+        
+        }).catch(err=>console.log(err))
 
-     },[myordersdata])
+     },[myordersdata]);
+  
 
     const deleteorder=(id)=>{
         const confirmdelete=window.confirm("Are you sure you want to delete this data?");
@@ -54,10 +61,13 @@ function Myorders() {
                 toast.success(res.data)
                 const filterdata=myordersdata.filter(product=>product._id!==id);
                 setMyordersdata(filterdata);
+                
      
            }).catch(err=>console.log(err))
             }
         }
+
+      
        
 
     return (
@@ -88,6 +98,8 @@ function Myorders() {
                                           <StyledTableCell align="right">{product.productdetails.price}</StyledTableCell>
                                           <StyledTableCell align="right">{product.status}</StyledTableCell>
                                           <StyledTableCell align="center">
+                                             
+                                              {product.paymentdetails?<Button>paid</Button>: <NavLink className="paymentlink" to={`/dashboard/payment/${product._id}`}><Button variant="contained">Pay</Button></NavLink>}
                                               <Button onClick={()=>deleteorder(product._id)} variant="contained">Delete</Button>
                                           </StyledTableCell>
                                 
@@ -96,16 +108,7 @@ function Myorders() {
 
                                  })
                                }
-                                {/* <StyledTableRow key={product._id}>
-                                <StyledTableCell component="th" scope="row">
-                                   
-                                </StyledTableCell>
-                                <StyledTableCell align="right">{product.name}</StyledTableCell>
-                                <StyledTableCell align="right">{product.price}</StyledTableCell>
-                                <StyledTableCell align="right"></StyledTableCell>
                                 
-                                </StyledTableRow> */}
-                            
                             </TableBody>
                         </Table>
                         </TableContainer> 

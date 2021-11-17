@@ -83,7 +83,7 @@ function Manageallorders() {
                                           <StyledTableCell component="th" scope="row">{product.email}</StyledTableCell>
                                           <StyledTableCell align="right">{product.productdetails.name}</StyledTableCell>
                                           <StyledTableCell align="right">{product.productdetails.price}</StyledTableCell>
-                                          <StyledTableCell align="right">{product.status}</StyledTableCell>
+                                          <StyledTableCell align="right">{product.status}/{product.paymentdetails?"paid":"unpaid"}</StyledTableCell>
                                           <StyledTableCell align="center">
                                               {product.status==="Pending"?
                                                 <Button onClick={()=>changestatus(product._id)} variant="contained">Change status</Button>:<Button disabled variant="contained">Shipped</Button>
