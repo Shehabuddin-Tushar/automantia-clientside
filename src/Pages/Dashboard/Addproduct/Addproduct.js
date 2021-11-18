@@ -18,7 +18,7 @@ function Addproduct() {
         formData.append('img',data.img[0]);
         formData.append('description',data.description);
 
-
+        
         axios.post(`https://desolate-atoll-64898.herokuapp.com/addproduct`,formData)
         .then(res=>{
            console.log(res)

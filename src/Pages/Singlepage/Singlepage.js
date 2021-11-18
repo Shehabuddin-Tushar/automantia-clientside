@@ -17,7 +17,14 @@ function Singlepage() {
     const { register, handleSubmit,formState: { errors },reset } = useForm();
     const onSubmit = data =>{
          
-         data.productdetails=product;
+         const myorderproduct={
+            _id:product._id,
+            name:product.name,
+            price:product.price,
+            description:product.description
+         }
+         data.productdetails=myorderproduct;
+        
          axios.post(`https://desolate-atoll-64898.herokuapp.com/ordersave`,data)
          .then(res=>{
             toast.success("your order successfully")
