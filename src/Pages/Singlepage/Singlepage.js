@@ -40,7 +40,7 @@ function Singlepage() {
            <Grid container spacing={2}>
                 <Grid item xs={12} md={6} sx={{mt:20}}>
                     <SRLWrapper>
-                        <img width="100%" src={product.img} alt="image name" className="productimage"/>
+                        <img width="100%" src={`data:image/*;base64,${product.img}`} alt="image name" className="productimage"/>
                     </SRLWrapper>
                     <Typography variant="h4" sx={{mt:5,fontWeight:"bold"}}>Name: {product.name} </Typography>
                     <Typography variant="h5" sx={{mt:1,fontWeight:"bold"}}>Price: ${product.price}</Typography>
