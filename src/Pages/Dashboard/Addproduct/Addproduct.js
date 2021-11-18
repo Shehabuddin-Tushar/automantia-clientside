@@ -19,7 +19,7 @@ function Addproduct() {
         formData.append('description',data.description);
 
 
-        axios.post(`http://localhost:5000/addproduct`,formData)
+        axios.post(`https://desolate-atoll-64898.herokuapp.com/addproduct`,formData)
         .then(res=>{
            console.log(res)
             if(res.data.insertedId){
