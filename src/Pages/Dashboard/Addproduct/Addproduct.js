@@ -19,11 +19,12 @@ function Addproduct() {
         formData.append('description',data.description);
 
 
-        axios.post(`https://desolate-atoll-64898.herokuapp.com/addproduct`,formData)
+        axios.post(`http://localhost:5000/addproduct`,formData)
         .then(res=>{
-            console.log(res);
-            if(res.insertedId){
-                toast.success("product inserted successfully")
+           console.log(res)
+            if(res.data.insertedId){
+                toast.success("product inserted successfully");
+                return
             }else{
                 toast.error("product already exists")
             }
