@@ -18,7 +18,7 @@ function Pay() {
 
     useEffect(()=>{
        
-        fetch(`http://localhost:5000/myorderByid/${id}`).then(res=>res.json()).then(data=>{
+        fetch(`https://desolate-atoll-64898.herokuapp.com/myorderByid/${id}`).then(res=>res.json()).then(data=>{
           setMydetail(data)
           setMyorder(data.productdetails);
          
